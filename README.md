@@ -77,7 +77,7 @@ streamlit run Home.py
 ### 📁 프로젝트 폴더 구조
 
 SKN10-1st-3Team/   
-├── files/ &emsp;&emsp;&nbsp;&nbsp;&nbsp;# 파일 저장소
+├── files/ &emsp;&emsp;&nbsp;&nbsp;&nbsp;# 파일 저장소   
 ├── images/ &emsp;&emsp;&nbsp;&nbsp;&nbsp;# 이미지 저장소  
 ├── pages/ &emsp;&emsp;&emsp;&nbsp;# 페이지 코드  
 ├── Home.py/ &emsp;&emsp;# 홈페이지   
