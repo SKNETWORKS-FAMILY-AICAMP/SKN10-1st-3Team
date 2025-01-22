@@ -34,6 +34,12 @@
 
 !["github logo"](./images/skill_stack.png)
 
+### 💾 데이터 정재 및 가져오기
+
+!["data generate"](./images/DBeaver.png)   
+[database.sql](./files/sql.sql) 파일을 실행하여 데이터베이스 파일인 [vehicle_registration_data2.csv](./files/vehicle_registration_data2.csv)를 생성
+
+
 ### <img src="./images/install.png" width="20" height="20"/> 설치 및 실행 방법
 
 1. 저장소 클론
@@ -60,9 +66,18 @@ streamlit run Home.py
 \[Genesis]: https://www.genesis.com/kr/ko/support/faq.html   
 \[Porsche]: https://www.porsche.com/korea/ko/aboutporsche/e-performance/faq/   
 
-### 프로젝트 구조
+### 🏗️ 화면 설계도
+
+![screen](./images/screen.png)
+
+### 🖥️ 실행 화면
+
+
+
+### 📁 프로젝트 폴더 구조
 
 SKN10-1st-3Team/   
+├── files/ &emsp;&emsp;&nbsp;&nbsp;&nbsp;# 파일 저장소
 ├── images/ &emsp;&emsp;&nbsp;&nbsp;&nbsp;# 이미지 저장소  
 ├── pages/ &emsp;&emsp;&emsp;&nbsp;# 페이지 코드  
 ├── Home.py/ &emsp;&emsp;# 홈페이지   
