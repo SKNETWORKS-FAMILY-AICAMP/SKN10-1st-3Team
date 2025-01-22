@@ -13,44 +13,44 @@ def load_data(p_select: str):
     # SQL 쿼리
     sql_total = """
         select
-            substring(`월(Monthly)`,1,4) as `연도`,
-            sum(`계_4`) as `계`
+            year as `연도`,
+            sum(total) as `계`
         from
-            vehicle_registration_data vrd
+            vehicle_registration_data2
         where 1=1
-            and `시군구` = '계'
-            and substring(`월(Monthly)`,6,2) = '12'
+            and district = '계'
+            and month(formatted_date) = 12
         group by
-            `연도`
+            year
         ;
     """
     
     sql_seoul = '''
         select
-            substring(`월(Monthly)`,1,4) as `연도`,
-            `시도명`,
-            `계_4` as `계`
+            year as `연도`,
+            city as `시도명`,
+            total as `계`
         from
-            vehicle_registration_data vrd
+            vehicle_registration_data2
         where 1=1
-            and `시도명` = '서울'
-            and `시군구` = '계'
-            and substring(`월(Monthly)`,6,2) = '12'
+            and city = '서울'
+            and district = '계'
+            and month(formatted_date) = 12
         ;
     '''
 
     sql_gu = '''
         select
-            substring(`월(Monthly)`,1,4) as `연도`,
-            `시도명`,
-            `시군구`,
-            `계_4` as `계`
+            year as `연도`,
+            city as `시도명`,
+            district as `시군구`,
+            total as `계`
         from
-            vehicle_registration_data vrd
+            vehicle_registration_data2
         where 1=1
-            and `시도명` = '서울'
-            and `시군구` != '계'
-            and substring(`월(Monthly)`,6,2) = '12'
+            and city = '서울'
+            and district != '계'
+            and month(formatted_date) = 12
         ;
     '''
 
