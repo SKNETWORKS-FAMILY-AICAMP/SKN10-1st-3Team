@@ -44,12 +44,12 @@ st.markdown(feature2)
 # 기술 스택
 skill_stack="./images/skill_stack.png"
 st.subheader("🔧 기술 스택")
-st.image(skill_stack)
+st.image(skill_stack, width=1200)
 
 # 데이터 정재 및 가져오기
 st.subheader("데이터 정재 및 가져오기")
 data_image = "./images/DBeaver.png"
-st.image(data_image)
+st.image(data_image, width=1200)
 data_reconstruction = """
 [database.sql](./files/sql.sql) 파일을 실행하여 데이터베이스 파일인 [vehicle_registration_data2.csv](./files/vehicle_registration_data2.csv)를 생성
 """
@@ -76,10 +76,11 @@ st.markdown(install_start)
 # 데이터 출처
 st.subheader("데이터 출처")
 data_source = """
-- 자동차 등록 데이터: 국토교통부 통계누리
+- 자동차 등록 데이터: 국토교통부 통계누리   
+  - https://tinyurl.com/3x2u92mp
 """
 st.markdown(data_source)
-st.image("./images/data_1.png")
+st.image("./images/data_1.png", width=1200)
 FAQ_source = """
 - 자동차 기업 FAQ: 해당 기업의 공식 웹사이트   
 [Hyundai FAQ]: https://www.hyundai.com/kr/ko/e/customer/center/faq   
@@ -91,7 +92,7 @@ st.markdown(FAQ_source)
 
 # 화면 설계도
 st.subheader("화면 설계도")
-st.image("./images/screen.png")
+st.image("./images/screen.png", width=1000)
 
 # 팀 소개
 st.subheader('👯‍♂️ 팀원')
