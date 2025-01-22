@@ -3,6 +3,55 @@ import pandas as pd
 import plotly.graph_objects as go
 
 
+# 페이지 기본 설정
+st.set_page_config(layout="wide")
+
+# CSS 스타일 적용
+st.markdown("""
+<style>
+    /* 탭 스타일링 */
+    .stTabs [data-baseweb="tab-list"] {
+        gap: 24px;
+        padding: 0 24px;
+    }
+    
+    .stTabs [data-baseweb="tab"] {
+        height: 50px;
+        background-color: #f0f2f6;
+        border-radius: 20px;
+        padding: 0 20px;
+        font-size: 16px;
+    }
+    
+    .stTabs [aria-selected="true"] {
+        background-color: #C890A7;
+        color: white;
+    }
+    
+    /* 탭 hover 효과 */
+    .stTabs [data-baseweb="tab"]:hover {
+        background-color: #e0e2e6;
+        color: black;
+    }
+    
+    /* 선택된 탭 hover */
+    .stTabs [aria-selected="true"]:hover {
+        background-color: #C890A7;
+        color: white;
+            
+}
+    }
+</style>
+""", unsafe_allow_html=True)
+
+# 사이드바 메뉴 구현
+with st.sidebar:
+    st.title("연도별 자동차 현황")
+    menu = ["HOME", "연도별 자동차 현황", "FAQ"]
+    choice = st.radio("메뉴", menu)
+
+    # 메인 페이지
+st.title("연도별 자동차 현황")
 
 # SQL 쿼리를 실행하여 결과를 캐싱하는 함수
 @st.cache_data
@@ -67,23 +116,43 @@ def load_data(p_select: str):
         result = conn.query(sql=sql_gu, ttl=3600)
         return pd.DataFrame(result)
 
-# tab 생성
-tab1, tab2, tab3 = st.tabs(['전국', '서울', '서울 구'])
 
-# 데이터 로드
+## # 데이터 로드
 data_total = load_data('total')
 data_seoul = load_data('seoul')
 data_seoul_gu = load_data('gu')
 
+# tab 생성
+tab1, tab2, tab3 = st.tabs(['전국', '서울', '서울 구'])
+
+# 데이터 로드
+## data_total = load_data('total')
+# data_total 전치
+data_total_transposed = data_total.set_index('연도').transpose()
+data_total_transposed.columns = data_total_transposed.columns.astype(str)
+## data_seoul = load_data('seoul')
+data_seoul_transposed = data_seoul.set_index('연도').transpose()
+data_seoul_transposed.columns = data_seoul_transposed.columns.astype(str)
+data_seoul_gu = load_data('gu')
+## data_seoul = load_data('seoul_gu')
+data_seoul_gu_transposed = data_seoul_gu.pivot_table(values='계', index=['시도명', '시군구'], columns='연도').reset_index()
+data_seoul_gu_transposed.columns = data_seoul_gu_transposed.columns.astype(str)
+
 # 데이터프레임 표시
+## tab1.header("전국 자동차 등록 현황 합계 데이터")
+## tab1.dataframe(data_total)
 tab1.header("전국 자동차 등록 현황 합계 데이터")
-tab1.dataframe(data_total)
+tab1.dataframe(data_total_transposed, use_container_width=True)
 
-tab2.header("서울 자동차 등록 현황 합계 데이터")
-tab2.dataframe(data_seoul)
+## tab2.header("서울 자동차 등록 현황 합계 데이터")
+## tab2.dataframe(data_seoul)
+tab2.header("서울 자동차 등록 현황 합계 데이터 ")
+tab2.dataframe(data_seoul_transposed, use_container_width=True)
 
-tab3.header('서울 구별 자동차 등록 현황 합계 데이터')
-tab3.dataframe(data_seoul_gu)
+## tab3.header('서울 구별 자동차 등록 현황 합계 데이터')
+## tab3.dataframe(data_seoul_gu)
+tab3.header('서울 구별 자동차 등록 현황 합계 데이터 ')
+tab3.dataframe(data_seoul_gu_transposed, use_container_width=True)
 
 
 # 전국 그래프 생성
@@ -116,12 +185,29 @@ fig_total.update_layout(
     xaxis_autorange=True,
     yaxis_autorange=True,
     template="plotly_white",  # 그래프 테마
-    width=1000,
-    height=500
+    width=1400,
+    height=500,    
+    xaxis=dict(
+        showline=True,
+        linewidth=4,
+        linecolor='black',
+        mirror='all',
+        ticks='outside'
+    ),
+    yaxis=dict(
+        showline=True,
+        linewidth=4,
+        linecolor='black',
+        mirror='all',
+        ticks='outside'
+    ),
+    plot_bgcolor='white',
+    paper_bgcolor='white'
 )
 
 # 서울 그래프 생성
 fig_seoul = go.Figure()
+
 
 fig_seoul.add_trace(go.Scatter(
     x=data_seoul['연도'], 
@@ -146,13 +232,75 @@ fig_seoul.update_layout(
     yaxis_title="총 서울 등록 차량 수",
     xaxis_autorange=True,
     yaxis_autorange=True,
-    template="plotly_white",  # 그래프 테마
+    
+    template="plotly_white",
     width=1000,
-    height=500
+    height=500,
+    xaxis=dict(
+        showline=True,
+        linewidth=4,
+        linecolor='black',
+        mirror='all',
+        ticks='outside'
+    ),
+    yaxis=dict(
+        showline=True,
+        linewidth=4,
+        linecolor='black',
+        mirror='all',
+        ticks='outside'
+    ),
+    plot_bgcolor='white',
+    paper_bgcolor='white'
+)
+
+# 서울 세부 지역별 그래프 생성
+# 연도 선택 위젯 추가
+years = data_seoul_gu['연도'].unique()
+selected_year = tab3.selectbox("연도를 선택하세요:", options=sorted(years))
+
+# 선택한 연도의 데이터 필터링
+filtered_data = data_seoul_gu[data_seoul_gu['연도'] == selected_year]
+
+# 그래프 생성
+fig_gu = go.Figure()
+
+
+# 막대 그래프 추가
+fig_gu.add_trace(go.Bar(
+    x=filtered_data['시군구'],
+    y=filtered_data['계'],
+    text=filtered_data['계'],
+    textposition='outside',
+    marker=dict(color='#81d2f2'),
+    name=f"{selected_year} 등록 현황"
+))
+
+# 레이아웃 설정
+fig_gu.update_layout(
+    title=f"{selected_year}년 서울 구별 자동차 등록 현황",
+    xaxis_title="구",
+    yaxis_title="등록 차량 수",
+    xaxis=dict(
+        tickangle=45,
+        showline=True,
+        linewidth=2,
+        linecolor='black',
+    ),
+    yaxis=dict(
+        showline=True,
+        linewidth=2,
+        linecolor='black',
+    ),
+    template="plotly_white",
+    width=1000,
+    height=500,
+    plot_bgcolor='white',
+    paper_bgcolor='white'
 )
 
 
 # 그래프 출력
 tab1.plotly_chart(fig_total, use_container_width=True)
 tab2.plotly_chart(fig_seoul, use_container_width=True)
-tab3.bar_chart(data_seoul_gu, x="연도", y="계", color="시군구", stack=False, use_container_width = False)
+tab3.plotly_chart(fig_gu, use_container_width=True)
