@@ -1,5 +1,11 @@
 # SKN10-1st-3Team
 
+<div align="center">
+  
+  <img width="1000" alt="image" src="https://github.com/Jh-jaehyuk/Jh-jaehyuk.github.io/assets/126551524/7ea63fc3-95f0-44d5-a0f0-cf431cae34f1"> 
+  
+</div>
+
 ## 🚗 전국 자동차 등록 현황 및 기업 FAQ 조회 시스템
 
 ### 💡 프로젝트 개요
