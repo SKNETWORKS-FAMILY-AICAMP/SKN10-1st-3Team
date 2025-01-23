@@ -97,11 +97,14 @@ streamlit run Home.py
 ### 📁 프로젝트 폴더 구조
 
 SKN10-1st-3Team/   
-├── files/ &emsp;&emsp;&emsp;&emsp;&nbsp;# 파일 저장소   
-├── images/ &emsp;&emsp;&nbsp;&nbsp;&nbsp;# 이미지 저장소  
-├── pages/ &emsp;&emsp;&emsp;&nbsp;# 페이지 코드  
-├── Home.py/ &emsp;&emsp;# 홈페이지   
-└── README.md &nbsp;&nbsp;&nbsp;# 프로젝트 개요 및 설명
+├── .streamlit/ &emsp;&nbsp;&nbsp;&nbsp;&nbsp;# MySQL 연결 정보 저장소   
+├── .venv/ &emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;# 가상환경   
+├── files/ &emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;# 파일 저장소   
+├── images/ &emsp;&emsp;&nbsp;&nbsp;&nbsp;&nbsp;# 이미지 저장소  
+├── pages/ &emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;# 페이지 코드  
+├── Home.py/ &emsp;&emsp;&nbsp;&nbsp;# 홈페이지   
+├── README.md &emsp;&nbsp;# 프로젝트 개요 및 설명   
+└── requirement.txt # 필요 패키지
 
 ---
 본 프로젝트는 자동차 등록 현황의 이해를 돕고, 자동차 기업의 기본 정보를 사용자에게 제공하는 것을 목표로 합니다.
