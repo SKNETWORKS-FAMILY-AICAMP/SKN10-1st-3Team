@@ -107,8 +107,8 @@ SKN10-1st-3Team/
 │   ├── <img src="./images/python_emoji.png" width="15" height="15"/>CARSTATUS.py   
 │   ├── <img src="./images/python_emoji.png" width="15" height="15"/>FAQ.py     
 ├── 📁Home.py/    
-├── <img src="./images/readme_emoji.png" width="15" height="15"/>README.md  
-└── 📝requirement.txt  
+├── 📄README.md  
+└── 📄requirement.txt  
 
 ---
 본 프로젝트는 자동차 등록 현황의 이해를 돕고, 자동차 기업의 기본 정보를 사용자에게 제공하는 것을 목표로 합니다.
