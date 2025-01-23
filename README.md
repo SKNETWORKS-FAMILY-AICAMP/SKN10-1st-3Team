@@ -45,12 +45,10 @@
 ### <img src="./images/install.png" width="20" height="20"/> 설치 및 실행 방법
 
 1. 저장소 클론
-
-<code style="display: block;">
-git clone https://github.com/SKNETWORKS-FAMILY-AICAMP/SKN10-1st-3Team.git   
-
+```bash
+git clone https://github.com/SKNETWORKS-FAMILY-AICAMP/SKN10-1st-3Team.git  
 cd SKN10-1st-3Team
-</code> 
+``` 
 
 2. 데이터 불러오기
   - .streamlit/secrets.toml에 맞는 DB 프로젝트 생성 후
@@ -58,15 +56,15 @@ cd SKN10-1st-3Team
 
 3. 환경에 따른 실행 방법   
 가상환경 실행 후 프론트엔드 서버 실행
-<code style="display: block;">
+```bash
 ./.venv/Scripts/activate   
 streamlit run Home.py
-</code> 
-로컬에서 실행하고자 한다면 필요한 패키지 다운 후 실행
-<code style="display: block;">
+```
+&emsp;&emsp;&emsp;로컬에서 실행하고자 한다면 필요한 패키지 다운 후 실행
+```bash
 pip install -r requirement.txt   
 streamlit run Home.py
-</code> 
+```
 
 ### 🛢️ 데이터 출처
 
