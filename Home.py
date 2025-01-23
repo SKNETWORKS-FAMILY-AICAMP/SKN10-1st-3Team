@@ -5,7 +5,7 @@ st.set_page_config(page_title="Home", layout="wide")
 
 title_alignment="""
 <h1 style='text-align: center;'>
-Mini Project
+하나, 둘, 3조
 </h1>
 """
 
