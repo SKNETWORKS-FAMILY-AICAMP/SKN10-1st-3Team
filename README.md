@@ -36,6 +36,17 @@
 
 !["github logo"](./images/skill_stack.png)
 
+### 🛢️ 데이터 출처
+
+- 자동차 등록 데이터: 국토교통부 통계누리
+![data image](./images/data_1.png)
+
+- 자동차 기업 FAQ: 해당 기업의 공식 웹사이트   
+\[Hyundai FAQ]: https://www.hyundai.com/kr/ko/e/customer/center/faq   
+\[Kia FAQ]: https://www.kia.com/kr/customer-service/center/faq   
+\[Genesis]: https://www.genesis.com/kr/ko/support/faq.html   
+\[Porsche]: https://www.porsche.com/korea/ko/aboutporsche/e-performance/faq/   
+
 ### 💾 데이터 정재 및 가져오기
 
 !["data generate"](./images/DBeaver.png)   
@@ -65,17 +76,6 @@ streamlit run Home.py
 pip install -r requirement.txt   
 streamlit run Home.py
 ```
-
-### 🛢️ 데이터 출처
-
-- 자동차 등록 데이터: 국토교통부 통계누리
-![data image](./images/data_1.png)
-
-- 자동차 기업 FAQ: 해당 기업의 공식 웹사이트   
-\[Hyundai FAQ]: https://www.hyundai.com/kr/ko/e/customer/center/faq   
-\[Kia FAQ]: https://www.kia.com/kr/customer-service/center/faq   
-\[Genesis]: https://www.genesis.com/kr/ko/support/faq.html   
-\[Porsche]: https://www.porsche.com/korea/ko/aboutporsche/e-performance/faq/   
 
 ### 🏗️ 화면 설계도
 
