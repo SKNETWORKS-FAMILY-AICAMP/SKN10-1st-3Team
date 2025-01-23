@@ -60,7 +60,7 @@ cd SKN10-1st-3Team
 ./.venv/Scripts/activate   
 streamlit run Home.py
 ```
-&emsp;&emsp;&emsp;로컬에서 실행하고자 한다면 필요한 패키지 다운 후 실행
+&emsp;&emsp;로컬에서 실행하고자 한다면 필요한 패키지 다운 후 실행
 ```bash
 pip install -r requirement.txt   
 streamlit run Home.py
