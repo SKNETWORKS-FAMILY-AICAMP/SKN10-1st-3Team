@@ -51,6 +51,7 @@ def load_data(p_select: str):
             and city = '서울'
             and district != '계'
             and month(formatted_date) = 12
+            
         ;
     '''
 
@@ -155,4 +156,4 @@ fig_seoul.update_layout(
 # 그래프 출력
 tab1.plotly_chart(fig_total, use_container_width=True)
 tab2.plotly_chart(fig_seoul, use_container_width=True)
-tab3.bar_chart(data_seoul_gu, x="연도", y="계", color="시군구", stack=False, use_container_width = False)
+tab3.bar_chart(data_seoul_gu, x="연도", y="계", color="시군구", stack=False, use_container_width = True)
