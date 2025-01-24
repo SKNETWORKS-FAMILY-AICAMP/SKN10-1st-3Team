@@ -68,14 +68,8 @@ cd SKN10-1st-3Team
   - .streamlit/secrets.toml에 맞는 DB 프로젝트 생성 후
   - vehicle_registration_data2.csv를 가져와 데이터베이스 생성
 
-3-1. 가상환경 실행 후 프론트엔드 서버 실행
+3. 패키지 설치 후 실행
 
-```bash
-./.venv/Scripts/activate
-streamlit run Home.py
-```
-
-3-2. 로컬에서 실행하고자 한다면 필요한 패키지 다운 후 실행
 ```bash
 pip install -r requirement.txt
 streamlit run Home.py
