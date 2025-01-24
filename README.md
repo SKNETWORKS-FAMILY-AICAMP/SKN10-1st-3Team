@@ -50,7 +50,7 @@
 ### 💾 데이터 정재 및 가져오기
 
 !["data generate"](./images/DBeaver.png)   
-[database.sql](./files/sql.sql) 파일을 실행하여 데이터베이스 파일인 [vehicle_registration_data2.csv](./files/vehicle_registration_data2.csv)를 생성
+[database.sql](./files/sql.sql) 파일을 실행하여 데이터베이스 파일인 [vehicle_registration_data2.csv](./data/vehicle_registration_data2.csv)를 생성
 
 ### ERD   
 전국 자동차 등록 데이터에 관한 ERD
@@ -66,7 +66,7 @@ cd SKN10-1st-3Team
 
 2. 데이터 불러오기
   - .streamlit/secrets.toml에 맞는 DB 프로젝트 생성 후
-  - vehicle_registration_data2.csv를 가져와 데이터베이스 생성
+  - data/vehicle_registration_data2.csv를 가져와 데이터베이스 생성
 
 3. 패키지 설치 및 실행   
 ```bash
@@ -105,10 +105,10 @@ streamlit run Home.py
 
 SKN10-1st-3Team/   
 ├── 📁.streamlit/     
-├── 📁.venv/  
+├── 📁data/  
+│   ├── <img src="./images/csv_emoji.png" width="16" height="16"/> vehicle_registration_data2.csv  
 ├── 📁files/  
-│   ├── 🛢️database.sql   
-│   ├── <img src="./images/csv_emoji.png" width="16" height="16"/> vehicle_registration_data2.csv      
+│   ├── 🛢️database.sql       
 ├── 📁images/  
 ├── 📁pages/  
 │   ├── <img src="./images/python_emoji.png" width="15" height="15"/>CARSTATUS.py   
